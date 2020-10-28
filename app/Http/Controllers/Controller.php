@@ -14,14 +14,14 @@ class Controller extends BaseController
         "So many books, so little time - Frank Zappa",
         "Be the change that you wish to see in the world - Mahatma Gandhi",
     );
-
     public function index()
     {
         $totalQuotes = (count(Controller::$quotes));
         $randomNumber = (rand(0,($totalQuotes-1)));
         $randomQuote = Controller::$quotes[$randomNumber];
-        return response()->json(['quote' => $randomQuote]);
-    }    
+        return response()->json(['quote' => $randomQuote, 'server_ip' => gethostbyname(gethostname())]);
+    }
+    
 }
     
 
